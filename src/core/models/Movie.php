@@ -80,7 +80,7 @@ class Movie
 
         $path = "$imageDirectory/$fileName";
 
-        $add = Connect::Connect()->query("INSERT INTO `film`(`id_film`, `name_film`, `id_genre`, `id_ageLimit`, `poster_film`, `description`, `actors`, `filmmaker`, `country`, `duration_film`) VALUES (NULL,'$name','$id_genre','$id_ageLimit','$path','$description','$actors','$filmmaker','$country','$duration')");
+        $add = Connect::Connect()->query("INSERT INTO `film`(`id_film`, `name_film`, `id_genre`, `id_ageLimit`, `poster_film`, `description`, `actors`, `filmmaker`, `country`, `duration_film`) VALUES (NULL,'$name','$id_genre','$id_ageLimit','$fileName','$description','$actors','$filmmaker','$country','$duration')");
 
     }
 
@@ -111,7 +111,7 @@ class Movie
         }
 
         $path = "$imageDirectory/$fileName";
-        $update = Connect::Connect()->query("UPDATE `film` SET `name_film`='$name',`id_genre`='$id_genre',`id_ageLimit`='$id_ageLimit',`poster_film`='$path',`description`='$description',`actors`='$actors',`filmmaker`='$filmmaker_film',`country`='$country_film',`duration_film`='$duration' WHERE id_film = '$id'");
+        $update = Connect::Connect()->query("UPDATE `film` SET `name_film`='$name',`id_genre`='$id_genre',`id_ageLimit`='$id_ageLimit',`poster_film`='$fileName',`description`='$description',`actors`='$actors',`filmmaker`='$filmmaker_film',`country`='$country_film',`duration_film`='$duration' WHERE id_film = '$id'");
 
     }
 

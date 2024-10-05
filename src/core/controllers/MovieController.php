@@ -2,32 +2,38 @@
 
 namespace core\controllers;
 
+use App\view\View;
 use core\models\Movie;
 use services\Helper;
 
 class MovieController
 {
 
+    public $view;
+    public $movies;
+
+    public function __construct()
+    {
+        $this->view = new View(__DIR__ . '/../../../views');
+        $this->movies = new Movie();
+    }
+
     public function AllMovie($namePage)
     {
-        $Movie = new Movie();
-        $dataAllMovie = $Movie -> getAllMovie();
         if($namePage == "panel"){
-            require_once __DIR__ . '/../../../views/pages/admin/' . $namePage . '.php';
+            return $this->view->render("pages/admin/$namePage.php", ['dataAllMovie' => $this->movies->getAllMovie()]);
         } else {
-            require_once __DIR__ . '/../../../views/pages/' . $namePage . '.php';
+            return $this->view->render("pages/$namePage.php", ['dataAllMovie' => $this->movies->getAllMovie()]);
         }
 
     }
 
     public function OneMovie($namePage, $id)
     {
-        $Movie = new Movie();
-        $dataOneMovie = $Movie -> getOneMovie($id);
         if($namePage == "panel" or $namePage == "updateFilm"){
-            require_once __DIR__ . '/../../../views/pages/admin/' . $namePage . '.php';
+            return $this->view->render("pages/admin/$namePage.php", ['dataOneMovie' => $this->movies->getOneMovie($id)]);
         } else {
-            require_once __DIR__ . '/../../../views/pages/' . $namePage . '.php';
+            return $this->view->render("pages/$namePage.php", ['dataOneMovie' => $this->movies->getOneMovie($id)]);
         }
     }
 
@@ -35,8 +41,7 @@ class MovieController
     {
         $id = $_POST['film_id'];
         $name_poster = $_POST['id_poster'];
-        $Movie = new Movie();
-        $data = $Movie -> delFilm($id, $name_poster);
+        $this->movies->delFilm($id, $name_poster);
         Helper::redirect('/admin/panel');
     }
 
@@ -51,8 +56,7 @@ class MovieController
         $filmmaker = $_POST['filmmaker'];
         $country = $_POST['country'];
         $description = $_POST['description'];
-        $Movie = new Movie();
-        $data = $Movie -> addFilm($name, $name_genre, $poster, $actors, $duration, $name_ageLimit, $filmmaker, $country, $description);
+        $this->movies->addFilm($name, $name_genre, $poster, $actors, $duration, $name_ageLimit, $filmmaker, $country, $description);
         Helper::redirect('/admin/panel');
     }
 
@@ -68,8 +72,7 @@ class MovieController
         $country_film = $_POST['country_film'];
         $poster = $_FILES['poster'];
         $description = $_POST['description_film'];
-        $Movie = new Movie();
-        $dataUpdate = $Movie -> updFilm($id, $name, $id_genre, $actors, $duration, $ageLimit, $filmmaker_film, $country_film, $poster, $description);
+        $this->movies->updFilm($id, $name, $id_genre, $actors, $duration, $ageLimit, $filmmaker_film, $country_film, $poster, $description);
         Helper::redirect('/admin/panel');
     }
 
