@@ -2,39 +2,43 @@
 
 namespace core\controllers;
 
+use App\view\View;
 use core\models\Genre;
 use services\Helper;
 
 class GenreController
 {
 
+    public $view;
+    public $genres;
+
+    public function __construct()
+    {
+        $this->view = new View(__DIR__ . '/../../../views');
+        $this->genres = new Genre();
+    }
+
     public function AllGenre($namePage)
     {
-        $Genre = new Genre();
-        $dataAllGenre = $Genre -> getAllGenre();
-        require_once __DIR__ . '/../../../views/pages/admin/' . $namePage . '.php';
+        return $this->view->render("pages/admin/$namePage.php", ['AllGenre' => $this->genres->getAllGenre()]);
     }
 
     public function OneGenre($namePage, $id)
     {
-        $Genre = new Genre();
-        $dataOneGenre = $Genre ->getOneGenre($id);
-        require_once __DIR__ . '/../../../views/pages/admin/' . $namePage . '.php';
+        return $this->view->render("pages/admin/$namePage.php", ['OneGenre' => $this->genres->getOneGenre($id)]);
     }
 
     public function addGenre()
     {
         $name = $_POST['genre'];
-        $Genre = new Genre();
-        $data = $Genre -> addGenre($name);
+        $this->genres->addGenre($name);
         Helper::redirect('/admin/genre');
     }
 
     public function deleteGenre()
     {
         $id = $_POST['id'];
-        $Genre = new Genre();
-        $data = $Genre -> delGenre($id);
+        $this->genres->delGenre($id);
         Helper::redirect('/admin/genre');
     }
 
@@ -42,8 +46,7 @@ class GenreController
     {
         $id = $_POST['id'];
         $name = $_POST['name'];
-        $Genre = new Genre();
-        $data = $Genre -> updGenre($id, $name);
+        $this->genres->updGenre($id, $name);
         Helper::redirect('/admin/genre');
     }
 

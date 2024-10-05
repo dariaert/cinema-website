@@ -19,8 +19,8 @@ include __DIR__ . '/../../components/header.php';
                 <div class="redact_genre-block">
                     <h1>Обновление жанра</h1>
                     <form action="/content/genre/redact" method="post" class="redact-show-form">
-                        <input type="hidden" name="id" value="<?=$dataOneGenre['id']?>">
-                        <input id="name" name="name" type="text" class="redact-input-genre" value="<?=$dataOneGenre['name_genre']?>" required>
+                        <input type="hidden" name="id" value="<?=$OneGenre['id']?>">
+                        <input id="name" name="name" type="text" class="redact-input-genre" value="<?=$OneGenre['name_genre']?>" required>
                         <button class="btn-admin-panel" type="submit">
                             <div class="admin-panel-text">
                                 <div class="panel-icon">

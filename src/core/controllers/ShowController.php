@@ -2,24 +2,30 @@
 
 namespace core\controllers;
 
+use App\view\View;
 use core\models\Show;
 use services\Helper;
 
 class ShowController
 {
 
+    public $view;
+    public $shows;
+
+    public function __construct()
+    {
+        $this->view = new View(__DIR__ . '/../../../views');
+        $this->shows = new Show();
+    }
+
     public function AllShow($namePage)
     {
-        $Show = new Show();
-        $dataAllShow = $Show -> getAllShows();
-        require_once __DIR__ . '/../../../views/pages/admin/' . $namePage . '.php';
+        return $this->view->render("pages/admin/$namePage.php", ['AllShows' => $this->shows->getAllShows()]);
     }
 
     public function OneShow($namePage, $id)
     {
-        $Show = new Show();
-        $dataOneShow = $Show -> getOneShow($id);
-        require_once __DIR__ . '/../../../views/pages/admin/' . $namePage . '.php';
+        return $this->view->render("pages/admin/$namePage.php", ['OneShow' => $this->shows->getOneShow($id)]);
     }
 
     public function addShow()
@@ -28,16 +34,14 @@ class ShowController
         $time = $_POST['time'];
         $cost = $_POST['cost'];
         $name_film = $_POST['film-sel'];
-        $Show = new Show();
-        $data = $Show -> addShow($date, $time, $cost, $name_film);
+        $this->shows->addShow($date, $time, $cost, $name_film);
         Helper::redirect('/admin/show');
     }
 
     public function deleteShow()
     {
         $id = $_POST['id'];
-        $Show = new Show();
-        $data = $Show -> delShow($id);
+        $this->shows->delShow($id);
         Helper::redirect('/admin/show');
     }
 
@@ -48,8 +52,7 @@ class ShowController
         $time = $_POST['time_show'];
         $cost = $_POST['cost_show'];
         $name_film = $_POST['film-sel'];
-        $Show = new Show();
-        $data = $Show -> updShow($id, $date, $time, $cost, $name_film);
+        $this->shows->updShow($id, $date, $time, $cost, $name_film);
         Helper::redirect('/admin/show');
     }
 

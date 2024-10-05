@@ -97,69 +97,9 @@ class Router
                 elseif ($_SERVER['REQUEST_METHOD'] === "POST")
                 {
                     $method = $item['method'];
-                    switch ($method)
-                    {
-                        case 'register':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'login':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'logout':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'deleteGenre':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'deleteFilm':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'deleteShow':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'deleteFavourite':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'addGenre':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'addFilm':
-                            $action = new $item['controller'];
-                            $action->$method($_POST, $_FILES);
-                            die();
-                        case 'addShow':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'addFavourite':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'redactGenre':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'redactShow':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'redactFilm':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                        case 'bookingSeat':
-                            $action = new $item['controller'];
-                            $action->$method($_POST);
-                            die();
-                    }
+                    $action = new $item['controller'];
+                    $action->$method($_POST);
+                    die();
                 }
             }
         }
