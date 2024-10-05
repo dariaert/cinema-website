@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['user'])) {
-    \services\Helper::redirect('/login');
+    \core\services\Helper::redirect('/login');
     exit();
 }
 ?>
@@ -34,7 +34,7 @@ include __DIR__ . '/../components/head.php';
 
                         <div class="favourite-list-item">
                             <div class="favourite-list-item-img">
-                                <img src="<?='/src/uploads/' . $item['poster_film']?>" alt="" class="favourite-item-img">
+                                <img src="<?='/public/storage/' . $item['poster_film']?>" alt="" class="favourite-item-img">
                                 <span class="ageLimit-favourite"><?=$item['name_ageLimit']?></span>
                             </div>
 

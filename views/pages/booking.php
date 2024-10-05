@@ -14,10 +14,10 @@ $months = [
     12 => 'декабря'
 ];
 if (!isset($_SESSION['user'])) {
-    \services\Helper::redirect('/login');
+    \core\services\Helper::redirect('/login');
     exit();
 }
-$Ticket = new \core\models\Ticket();
+$Ticket = new \App\models\Ticket();
 $AllSeat = $Ticket -> getAllSeat($dataOneShow['id']);
 ?>
 <!doctype html>
@@ -37,7 +37,7 @@ include __DIR__ . '/../components/head.php';
                 <div class="booking_film-container">
                     <div class="poster-booking_film-container">
                         <div class="poster-booking_film">
-                            <img src="<?='/src/uploads/' . $dataOneShow['poster_film']?>" alt="" class="poster_booking_film-img">
+                            <img src="<?='/public/storage/' . $dataOneShow['poster_film']?>" alt="" class="poster_booking_film-img">
                         </div>
                     </div>
                     <div class="booking_film-text">

@@ -1,13 +1,13 @@
 <?php
 
-namespace router;
+namespace core\router;
 
-use core\controllers\FavouritesController;
-use core\controllers\GenreController;
-use core\controllers\MovieController;
-use core\controllers\ScheduleController;
-use core\controllers\ShowController;
-use core\controllers\TicketController;
+use App\controllers\FavouritesController;
+use App\controllers\GenreController;
+use App\controllers\MovieController;
+use App\controllers\ScheduleController;
+use App\controllers\ShowController;
+use App\controllers\TicketController;
 
 class Router
 {
@@ -22,14 +22,12 @@ class Router
         ];
     }
 
-    public static function myPost(string $url, string $controller, string $method, $data = false, $file = false)
+    public static function myPost(string $url, string $controller, string $method)
     {
         self::$list[] = [
             'url' => $url,
             'controller' => $controller,
-            'method' => $method,
-            'data' => $data,
-            'file' => $file
+            'method' => $method
         ];
     }
 

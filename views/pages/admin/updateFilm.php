@@ -1,6 +1,6 @@
 <?php
-$Genre = new \core\models\Genre();
-$Movie = new \core\models\Movie();
+$Genre = new \App\models\Genre();
+$Movie = new \App\models\Movie();
 $dataAllGenre = $Genre -> getAllGenre();
 $dataAgeLimit = $Movie -> getAllAgeLimit();
 ?><!doctype html>

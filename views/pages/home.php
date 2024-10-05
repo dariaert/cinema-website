@@ -23,7 +23,7 @@
                 <a href="about.php?id=<?=$item['id_film']?>">
                     <div class="poster-list-item">
                         <div class="poster-list-item-img">
-                            <img src="<?='/src/uploads/' . $item['poster_film']?>" alt="" class="poster-item-img">
+                            <img src="<?='/public/storage/' . $item['poster_film']?>" alt="" class="poster-item-img">
                         </div>
                         <span class="ageLimit"><?=$item['name_ageLimit']?></span>
                         <div class="poster-after-hover">

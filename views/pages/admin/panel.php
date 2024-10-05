@@ -1,6 +1,6 @@
 <?php
-$Genre = new \core\models\Genre();
-$Movie = new \core\models\Movie();
+$Genre = new \App\models\Genre();
+$Movie = new \App\models\Movie();
 $dataAllGenre = $Genre -> getAllGenre();
 $dataAgeLimit = $Movie -> getAllAgeLimit();
 ?>
@@ -87,7 +87,7 @@ include __DIR__ . '/../../components/header.php';
                             </tr>
                             <tr>
                                 <td class="show-table-content">
-                                    <img src="<?='/src/uploads/' . $item['poster_film']?>" alt="" class="poster-img">
+                                    <img src="<?='/public/storage/' . $item['poster_film']?>" alt="" class="poster-img">
                                 </td>
                                 <td class="show-table-content"><?=$item['name_film']?></td>
                                 <td class="show-table-content"><?=$item['name_genre']?></td>

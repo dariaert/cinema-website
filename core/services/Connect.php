@@ -1,5 +1,5 @@
 <?php
-namespace services;
+namespace core\services;
 
 class Connect
 {

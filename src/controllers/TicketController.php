@@ -1,10 +1,10 @@
 <?php
 
-namespace core\controllers;
+namespace App\controllers;
 
-use App\view\View;
-use core\models\Ticket;
-use services\Helper;
+use App\models\Ticket;
+use core\services\Helper;
+use core\view\View;
 
 class TicketController
 {
@@ -14,7 +14,7 @@ class TicketController
 
     public function __construct()
     {
-        $this->view = new View(__DIR__ . '/../../../views');
+        $this->view = new View(__DIR__ . '/../../views');
         $this->tickets = new Ticket();
     }
 

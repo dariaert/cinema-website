@@ -1,10 +1,10 @@
 <?php
 
-namespace core\controllers;
+namespace App\controllers;
 
-use App\view\View;
-use core\models\Movie;
-use services\Helper;
+use App\models\Movie;
+use core\services\Helper;
+use core\view\View;
 
 class MovieController
 {
@@ -14,7 +14,7 @@ class MovieController
 
     public function __construct()
     {
-        $this->view = new View(__DIR__ . '/../../../views');
+        $this->view = new View(__DIR__ . '/../../views');
         $this->movies = new Movie();
     }
 

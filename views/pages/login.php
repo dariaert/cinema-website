@@ -1,5 +1,7 @@
 <?php
-use services\Helper;
+
+use core\services\Helper;
+
 Helper::checkUser();
 ?>
 <!doctype html>

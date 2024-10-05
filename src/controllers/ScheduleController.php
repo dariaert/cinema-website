@@ -1,10 +1,9 @@
 <?php
 
-namespace core\controllers;
+namespace App\controllers;
 
-use App\view\View;
-use core\models\Schedule;
-use services\Helper;
+use App\models\Schedule;
+use core\view\View;
 
 class ScheduleController
 {
@@ -14,7 +13,7 @@ class ScheduleController
 
     public function __construct()
     {
-        $this->view = new View(__DIR__ . '/../../../views');
+        $this->view = new View(__DIR__ . '/../../views');
         $this->schedule = new Schedule();
     }
 

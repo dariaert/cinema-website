@@ -1,6 +1,6 @@
 <?php
 
-namespace services;
+namespace core\services;
 
 session_start();
 

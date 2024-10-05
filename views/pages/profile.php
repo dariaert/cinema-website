@@ -21,43 +21,86 @@ $months = [
 ?>
 <!doctype html>
 <html lang="en">
-<?php include __DIR__ . '/../components/head.php'; ?>
+<?php
+include __DIR__ . '/../components/head.php';
+?>
 <body>
+
 <div class="wrapper">
-    <?php include __DIR__ . '/../components/header.php'; ?>
+
+    <?php
+    include __DIR__ . '/../components/header.php';
+    ?>
+
     <main class="main">
         <div class="container">
+
             <div class="title-ticket-section">
                 <h1>Действующие билеты</h1>
             </div>
+
             <section class="all-tickets-list">
-                <?php foreach ($AllTicket as $item) : ?>
+
+                <?php
+                foreach ($AllTicket as $item) { ?>
+
                     <div class="all-tickets-list_item">
+
                         <div class="all-tickets-list_item-text">
+
                             <h4><?= date("d.m.Y H:i:s",strtotime($item['dateBoking'])) ?></h4>
+
                             <h2 style="font-weight: 400; margin-top: 10px;"><?= "№" . $item['id_ticket'] ?></h2>
+
                             <hr style="margin: 20px 0 20px">
+
                             <h2 style="font-weight: 400"><?= $item['name_film']?></h2>
+
                             <?php $month = $months[date('n', strtotime($item['date']))]; ?>
                             <h4 style="margin-top: 18px;"><?= date("j $month Y",strtotime($item['date'])) . ' в ' . date('H:i',strtotime($item['time'])) ?></h4>
+
                             <div class="all-tickets-list_item-text_line">
+
                                 <div class="all-tickets-list_item-text-cost">
+
                                     <h2 style="font-weight: 400"><?= $item['cost'] . '₽' ?></h2>
+
                                 </div>
+
                                 <div class="all-tickets-list_item-text-seat">
+
                                     <h2 style="font-weight: 400"><?= $item['row'] . ' РЯД ' . $item['seat_number'] . ' МЕСТО' ?></h2>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                         <div class="all-tickets-list_item-code">
-                            <img src="/public/assets/images/Icons/QR-CODE.svg"
+
+                            <img src="/public/assets/images/Icons/QR-CODE.svg">
+
                         </div>
+
                     </div>
-                <?php endforeach; ?>
+
+                    <?php
+                }
+                ?>
+
+
+
             </section>
+
         </div>
     </main>
-    <?php include __DIR__ . '/../components/footer.php'; ?>
+
+    <?php
+    include __DIR__ . '/../components/footer.php';
+    ?>
+
 </div>
+
 </body>
 </html>

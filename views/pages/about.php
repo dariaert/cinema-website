@@ -10,7 +10,7 @@
                 <div class="about_film-container">
                     <div class="poster-about_film-container">
                         <div class="poster-about_film">
-                            <img src="<?='/src/uploads/' . $dataOneMovie['poster_film']?>" alt="" class="poster_about_film-img">
+                            <img src="<?='/public/storage/' . $dataOneMovie['poster_film']?>" alt="" class="poster_about_film-img">
                         </div>
                         <span class="about_film-ageLimit"><?=$dataOneMovie['name_ageLimit']?></span>
                     </div>
@@ -50,7 +50,7 @@
                 </div>
                 <?php
                 if(isset($_SESSION["user"])) :
-                    $Favourites = new \core\models\Favourites();
+                    $Favourites = new \App\models\Favourites();
                     $dataOneFav = $Favourites->getOneFav($dataOneMovie['id_film']);
                     if(!empty($dataOneFav)) : ?>
                     <form action="/content/favourite/delete" method="post" class="form-favourite">
