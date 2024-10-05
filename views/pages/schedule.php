@@ -17,7 +17,7 @@ $months = [
 $today = date("Y-m-d");
 $todayIndex = array_search($today, array_column($dataAllDate, 'date'));
 
-$Ticket = new \core\models\Ticket();
+$Ticket = new \App\models\Ticket();
 $id_allshow = $Ticket->delAllTicket();
 ?>
 <!doctype html>
@@ -76,7 +76,7 @@ include __DIR__ . '/../components/head.php';
                         $printedMovies = array(); // Массив для отслеживания уже выведенных id_film
                         // Фильтрация фильмов по выбранной дате
                         $selectedDate = date("Y-m-d", strtotime($item['date']));
-                        $AllDataOneDate = new \core\models\Schedule();
+                        $AllDataOneDate = new \App\models\Schedule();
                         $AllMovieOneDate = $AllDataOneDate -> getAllMovieOneDate($selectedDate);
 //                        print_r($AllMovieOneDate);
 
@@ -92,7 +92,7 @@ include __DIR__ . '/../components/head.php';
 
                                         <div class="poster-content-schedule-container">
                                             <div class="poster-content-schedule">
-                                                <img src="<?='/src/uploads/' . $movie['poster_film']?>" alt="" class="poster_content-schedule-img">
+                                                <img src="<?='/public/storage/' . $movie['poster_film']?>" alt="" class="poster_content-schedule-img">
                                             </div>
                                             <span class="about_film-ageLimit"><?=$movie['name_ageLimit']?></span>
                                         </div>
@@ -122,7 +122,7 @@ include __DIR__ . '/../components/head.php';
                                             <div class="schedule-time-list">
 
                                                 <?php
-                                                $Time = new \core\models\Schedule();
+                                                $Time = new \App\models\Schedule();
                                                 $AllTime = $Time -> getTime($selectedDate, $movie['id_film']);
                                                 foreach ($AllTime as $item) {
                                                 ?>

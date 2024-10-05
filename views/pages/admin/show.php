@@ -1,5 +1,5 @@
 <?php
-$Movie = new \core\models\Movie();
+$Movie = new \App\models\Movie();
 $dataAllMovie = $Movie -> getAllMovie();
 ?>
 <!doctype html>

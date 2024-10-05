@@ -1,10 +1,10 @@
 <?php
 
-namespace core\controllers;
+namespace App\controllers;
 
-use App\view\View;
-use core\models\Show;
-use services\Helper;
+use App\models\Show;
+use core\services\Helper;
+use core\view\View;
 
 class ShowController
 {
@@ -14,7 +14,7 @@ class ShowController
 
     public function __construct()
     {
-        $this->view = new View(__DIR__ . '/../../../views');
+        $this->view = new View(__DIR__ . '/../../views');
         $this->shows = new Show();
     }
 

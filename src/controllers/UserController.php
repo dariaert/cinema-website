@@ -1,10 +1,10 @@
 <?php
 
-namespace core\controllers;
+namespace App\controllers;
 
-use App\view\View;
-use core\models\User;
-use services\Helper;
+use App\models\User;
+use core\services\Helper;
+use core\view\View;
 
 class UserController
 {
@@ -14,7 +14,7 @@ class UserController
 
     public function __construct()
     {
-        $this->view = new View(__DIR__ . '/../../../views');
+        $this->view = new View(__DIR__ . '/../../views');
         $this->users = new User();
     }
 

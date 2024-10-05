@@ -1,10 +1,10 @@
 <?php
 
-namespace core\controllers;
+namespace App\controllers;
 
-use App\view\View;
-use core\models\Genre;
-use services\Helper;
+use App\models\Genre;
+use core\services\Helper;
+use core\view\View;
 
 class GenreController
 {
@@ -14,7 +14,7 @@ class GenreController
 
     public function __construct()
     {
-        $this->view = new View(__DIR__ . '/../../../views');
+        $this->view = new View(__DIR__ . '/../../views');
         $this->genres = new Genre();
     }
 

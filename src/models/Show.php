@@ -1,8 +1,8 @@
 <?php
 
-namespace core\models;
+namespace App\models;
 
-use services\Connect;
+use core\services\Connect;
 
 class Show
 {
