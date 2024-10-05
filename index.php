@@ -4,6 +4,7 @@ session_start();
 
 require __DIR__ . "/src/services/Connect.php";
 require __DIR__ . "/src/services/Helper.php";
+require __DIR__ . "/src/view/View.php";
 require __DIR__ . "/src/core/controllers/UserController.php";
 require __DIR__ . "/src/core/controllers/MovieController.php";
 require __DIR__ . "/src/core/controllers/GenreController.php";

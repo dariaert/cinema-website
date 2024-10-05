@@ -39,7 +39,7 @@ include __DIR__ . '/../../components/head.php';
 
                 <h2>Сеансы</h2>
 
-                <?php foreach ($dataAllShow as $item) { ?>
+                <?php foreach ($AllShows as $item) { ?>
                     <hr style="margin: 30px 0 30px">
                     <div class="shows-content-list">
                         <div class="shows-content-list-item">

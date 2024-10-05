@@ -34,7 +34,7 @@ include __DIR__ . '/../../components/head.php';
             <section class="all-genres" style="margin: 50px 0 50px;">
 
                 <h2>Жанры</h2>
-                <?php foreach ($dataAllGenre as $item) { ?>
+                <?php foreach ($AllGenre as $item) { ?>
                     <div class="genre-content-list">
                         <div class="genre-content-list-item">
                             <h3><?= $item['name_genre'] ?></h3>

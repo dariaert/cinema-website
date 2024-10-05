@@ -9,7 +9,7 @@
             <nav class="menu">
                 <ul class="menu__list">
                     <?php
-                    if(isset($_SESSION["user"]) && $_SESSION["user"]["role"] != 0) {
+                    if(isset($_SESSION["user"]) && $_SESSION["user"]["role"] != "ROLE_USER") {
                     ?>
                         <li class="menu__list-item">
                             <a href="/admin/panel" class="menu__list-link header-animation-line">Панель</a>

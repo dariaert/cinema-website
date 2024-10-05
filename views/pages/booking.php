@@ -26,13 +26,10 @@ $AllSeat = $Ticket -> getAllSeat($dataOneShow['id']);
 include __DIR__ . '/../components/head.php';
 ?>
 <body>
-
 <div class="wrapper">
-
     <?php
     include __DIR__ . '/../components/header.php';
     ?>
-
     <main class="main">
         <div class="container">
 

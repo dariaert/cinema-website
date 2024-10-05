@@ -27,8 +27,8 @@ include __DIR__ . '/../components/head.php';
             <div class="favourite_list">
 
                 <?php
-                if(!empty($dataAllFav)){
-                    foreach ($dataAllFav as $item ) {
+                if(!empty($AllFav)){
+                    foreach ($AllFav as $item ) {
                 ?>
                     <a href="about.php?id=<?=$item['id_film']?>">
 
